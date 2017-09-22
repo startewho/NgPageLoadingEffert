@@ -16,7 +16,6 @@ export class PageLoadingService {
     rootViewContainer: ViewContainerRef;
 
     constructor(@Inject(ComponentFactoryResolver) private  _factoryResolver: ComponentFactoryResolver) {
- 
       }
 
     setRootViewContainerRef(viewContainerRef: ViewContainerRef) {
@@ -36,8 +35,8 @@ export class PageLoadingService {
       return this._loading;
     }
 
-   public Show () {
-        this.getpageloading().show();
+   public Show (index: number, timeSpance: number) {
+        this.getpageloading().show(index, timeSpance);
     }
    public Hide() {
        this.getpageloading().hide();

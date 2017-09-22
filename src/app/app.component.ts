@@ -2,21 +2,21 @@ import { Component,
   Inject,
   ViewContainerRef } from '@angular/core';
 
-import { Hero } from './hero';
+import { Effect } from './effect';
 
 import { PageLoadingService } from './page-loading/page-loading.service';
 
-const HEROES: Hero[] = [
-  { id: 11, name: 'Mr. Nice' },
-  { id: 12, name: 'Narco' },
-  { id: 13, name: 'Bombasto' },
-  { id: 14, name: 'Celeritas' },
-  { id: 15, name: 'Magneta' },
-  { id: 16, name: 'RubberMan' },
-  { id: 17, name: 'Dynama' },
-  { id: 18, name: 'Dr IQ' },
-  { id: 19, name: 'Magma' },
-  { id: 20, name: 'Tornado' }
+const EFFECTS: Effect[] = [
+  { id: 0, name: 'Mr. Nice' },
+  { id: 1, name: 'Narco' },
+  { id: 2, name: 'Bombasto' },
+  { id: 3, name: 'Celeritas' },
+  { id: 4, name: 'Magneta' },
+  { id: 5, name: 'RubberMan' },
+  { id: 6, name: 'Dynama' },
+  { id: 7, name: 'Dr IQ' },
+  { id: 8, name: 'Magma' },
+  { id: 9, name: 'Tornado' }
 ];
 
 
@@ -35,10 +35,10 @@ constructor ( @Inject(PageLoadingService) private pageservice : PageLoadingServi
   
 }
 
-  title = 'Tour of Heroes';
-  heroes = HEROES;
-  selectedHero: Hero;
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  title = 'Tour of Effects';
+  effects = EFFECTS;
+  selectedEffect: Effect;
+  onSelect(effect: Effect): void {
+    this.selectedEffect = effect;
   }
 }

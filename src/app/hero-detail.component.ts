@@ -1,30 +1,36 @@
 import { Component, Input, Inject } from '@angular/core';
-import { Hero } from './hero';
+import { Effect } from './effect';
 import {PageLoadingService} from './page-loading/page-loading.service';
+
+
 @Component({
-  selector: 'hero-detail',
+  selector: 'effect-detail',
   template: `
-    <div *ngIf="hero" style="z-index:-1;">
-      <h2>{{hero.name}} details!</h2>
-      <div><label>id: </label>{{hero.id}}</div>
+    <div *ngIf="effect" style="z-index:-1;">
+      <h2>{{effect.name}} details!</h2>
+      <div><label>id: </label>{{effect.id}}</div>
       <div>
         <label>name: </label>
-        <input [(ngModel)]="hero.name" placeholder="name"/>
+        <input [(ngModel)]="effect.name" placeholder="name"/>
       </div>
-      <button (click)="showA()">显示</button>
-      <button (click)="hideA()">隐藏</button>
-    </div>
+      <button type="button" class="btn btn-primary waves-light" (click)="showA()" mdbRippleRadius>展示</button>
+      
+      </div>
   `
 })
 
 
 export class HeroDetailComponent {
-  constructor(@Inject(PageLoadingService) private  pageloading: PageLoadingService){
+
+
+  @Input() effect: Effect;
+  constructor(@Inject(PageLoadingService) private  pageloading: PageLoadingService)
+  {
 
   }
 
   showA(): void {
-   this.pageloading.Show();
+   this.pageloading.Show(this.effect.id, 300);
   }
 
   hideA(): void {
@@ -32,6 +38,5 @@ export class HeroDetailComponent {
 
   }
 
-  @Input() hero: Hero;
 }
 
